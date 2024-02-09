@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Glowing Circle Animation</title>
+  <style>
+    body {
+      background: #050210;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: #fb5dad;
+      box-sizing: border-box;
+      position: relative;
+      display: block;
+      translate: -100px 0px;
+    }
+
+    .circle::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, #fb5dad 0%, #55fb9f 50%, #b97aff 100%);
+      animation: rotate 2s linear infinite;
+    }
+
+    .inner-circle {
+      background-color: #050210; 
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      display: block;
+      width: 165px;
+      height: 165px;
+    }
+
+    .inner-circle::after {
+      content: "";
+      width: 0px;
+      height: 0px;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      background-color: #1c10494d;
+      animation: grow 1s ease-in-out infinite; 
+    }
+    .glow {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: #fb5dad;
+      box-sizing: border-box;
+      position: relative;
+      display: block;
+      translate: 100px 0px;
+    }
+
+    .glow::after{
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: linear-gradient(to right, #fb5dad 0%, #55fb9f 50%, #b97aff 100%);
+      animation: rotate 2s linear infinite;
+      filter: blur(2em);
+    }
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes grow {
+      0% {
+        width: 0px;
+        height: 0px;
+      }
+      100% {
+        width: 160px;
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="glow"></div>
+  <div class="circle"></div>
+  <div class="inner-circle"></div>
+  
+</body>
+</html>
+
+
+
+
+
